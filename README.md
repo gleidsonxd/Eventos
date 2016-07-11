@@ -66,6 +66,12 @@ param email,       String,      required, email do usuario
 ```
 POST /createUsuario
 curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/createUsuario
+
+Retorna a mensagem de sucesso:
+HTTP/1.1 200 Ok
+{
+  "message":"Usuario criado com sucesso"
+}
 ```
 
 ##Update
