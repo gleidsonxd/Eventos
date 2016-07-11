@@ -24,4 +24,30 @@ HTTP/1.1 200 Ok
  "id":"1"
  "message":"evento criado com sucesso"
 }
+
+
+```
+
+Um serviço é alocado para os eventos. Eles compoem as coisas necessárias para que o evento aconteça. Exemplo: banner, folder, divulgação no site do instituto, filmagens, etc.
+Se for criar um evento que precise de um serviço, é necessário criar os serviços primeiro e enviar os ids para o método de criar eventos.
+Os serviços não são obrigatórios para a criação de um evento. Os eventos podem ser independentes.
+Para criar um serviço, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome do evento
+param tempo,       Int,         required, tempo para o servico ficar pronto. Tempo em dias
+param coord,       String       required, nome da coordenacao que oferece o servico
+```  
+  
+
+```
+POST /createServico
+curl -d "nome=Nome_Servico&tempo=15&coord=Coordenacao_eventos"localhost:3000/createServico
+
+Retorna o ID do servico criado:
+HTTP/1.1 200 Ok
+{
+ "id":"1"
+ "message":"servico criado com sucesso"
+}
 ```
