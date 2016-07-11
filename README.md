@@ -92,7 +92,7 @@ param userU,       String,                email do usuario que alterou o evento
 ```  
 
 ```
-curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateEventos/2 -d '{"Nome":"Nome_evento",
+curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateEventos/2 -d '{"nome":"Nome_evento",
  "servicos":[1,2,3],"lugar":"Auditorio","dataIni":10/10/2010 09:00,"dataFim":10/10/2010 12:00,"desc":"Lorem ipsum",
  "userC":"user@email.com","userU":"user2@email.com"}'
 
