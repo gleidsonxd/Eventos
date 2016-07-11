@@ -69,3 +69,32 @@ curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/createUsuario
 ```
 
 ##Update
+
+
+O usuario que criar um evento tambem vai poder alterar esse evento. Para atualizar um
+evento, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome do evento
+param servicos,    Array[Int],            id do serviço
+param lugar,       String,      required, nome do local, deve-se fazer um teste de msm locais na mesma data
+param dataIni,     String,      required, no formato dd/MM/yyyy HH:mm
+param dataFim,     String,      required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
+param desc,        String,                a descrição do evento
+param userC,        String,                email do usuario que criou o evento
+param userU,        String,                email do usuario que alterou o evento
+```  
+
+```
+ curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateEventos/2 -d '{"Nome":"Nome_evento",
+ "servicos":[1,2,3],"lugar":"Auditorio","dataIni":10/10/2010 09:00,"dataFim":10/10/2010 12:00,"desc":"Lorem ipsum",
+ "userC":"user@email.com","userU":"user2@email.com"}'
+
+Retorna o ID do evento alterado:
+HTTP/1.1 200 Ok
+{
+ "id":"2"
+ "message":"evento alterado com sucesso"
+}
+```
+
