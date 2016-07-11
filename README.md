@@ -68,3 +68,4 @@ POST /createUsuario
 curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/createUsuario
 ```
 
+##Update
