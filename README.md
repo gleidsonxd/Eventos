@@ -51,3 +51,18 @@ HTTP/1.1 200 Ok
  "message":"servico criado com sucesso"
 }
 ```
+
+Os usuarios do sistema vão se logar utilizando o email institucional, na primeira
+que se logarem no sistema, irão completar seu cadastro no sistema. Para criar um
+usuario, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome do usuario
+param email,       String,      required, email do usuario
+```
+
+```
+POST /createUsuario
+curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/createUsuario
+```
+
