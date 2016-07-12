@@ -125,3 +125,22 @@ HTTP/1.1 200 Ok
  "message":"serviço alterado com sucesso"
 }
 ```
+
+O usuario vai poder alterar os dados do seu cadastro. Para atualizar um
+usuario, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome do usuario
+
+```
+
+```
+curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateUsuario/user@email.com -d '{"nome":"Usuario_mod"}'
+
+Retorna o Email do usuario alterado:
+HTTP/1.1 200 Ok
+{
+ "email":"user@email.com"
+ "message":"Nome alterado com sucesso"
+}
+```
