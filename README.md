@@ -27,6 +27,7 @@ HTTP/1.1 200 Ok
  "message":"evento criado com sucesso"
 }
 ```
+---
 
 ###Update
 
@@ -57,6 +58,7 @@ HTTP/1.1 200 Ok
  "message":"evento alterado com sucesso"
 }
 ```
+---
 ###Delete
 ###Read
 
@@ -87,6 +89,7 @@ HTTP/1.1 200 Ok
  "message":"servico criado com sucesso"
 }
 ```
+---
 ###Update
 
 O usuario administrador vai poder alterar os serviços. Para atualizar um
@@ -110,6 +113,7 @@ HTTP/1.1 200 Ok
  "message":"serviço alterado com sucesso"
 }
 ```
+---
 ###Delete
 ###Read
 
@@ -136,6 +140,7 @@ HTTP/1.1 200 Ok
   "message":"Usuario criado com sucesso"
 }
 ```
+---
 ###Update
 
 O usuario vai poder alterar os dados do seu cadastro. Para atualizar um
@@ -157,6 +162,7 @@ HTTP/1.1 200 Ok
  "message":"Nome alterado com sucesso"
 }
 ```
+---
 ###Delete
 ###Read
 
@@ -165,9 +171,11 @@ HTTP/1.1 200 Ok
 ###Update
 ###Delete
 ###Read
+---
 
 ##Coordenação
 ###Create
 ###Update
 ###Delete
 ###Read
+---
