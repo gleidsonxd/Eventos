@@ -99,8 +99,9 @@ param coord,       String       required, nome da coordenacao que oferece o serv
 ```  
 
 ```
-curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateServicos/2 -d '{"nome":"Nome_evento_mod",
- "tempo":20,"coord":"Coordenação do serviço"}'
+PUT /updateServico
+curl -d "nome=Nome_Servico_Mod&tempo=20&coord=Coordenacao_eventos"localhost:3000/updateServico
+
 
 Retorna o ID do serviço alterado:
 HTTP/1.1 200 Ok
