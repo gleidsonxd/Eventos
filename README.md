@@ -156,3 +156,15 @@ HTTP/1.1 200 Ok
 ```
 ###Delete
 ###Read
+
+##Lugar
+###Create
+###Update
+###Delete
+###Read
+
+##Coordenação
+###Create
+###Update
+###Delete
+###Read
