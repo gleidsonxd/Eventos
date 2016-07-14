@@ -220,7 +220,48 @@ HTTP/1.1 200 Ok
 
 ##Coordenação
 ###Create
+
+É necessario cadastrar as coordenações antes de se cadastrar um serviço. Para criar uma 
+coordenação, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome da coordenação
+```
+
+```
+POST /createCoord
+curl -d "nome=Coordenacao_eventos"localhost:3000/createCoord
+
+Retorna o ID da coordenação criada:
+HTTP/1.1 200 Ok
+{
+  "id":"1"
+  "message":"Coordenação criada com sucesso"
+}
+```
+---
 ###Update
+
+O usuario administrado vai poder alterar os dados dos locais cadastrados. Para atualizar um
+lugar, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome da coordenação
+
+```
+
+```
+PUT /updateCoord
+curl -d "nome=Coordenacao_eventos"localhost:3000/updateCoord
+
+Retorna o ID da coordenação alterada:
+HTTP/1.1 200 Ok
+{
+  "id":"1"
+  "message":"Coordenação alterada com sucesso"
+}
+```
+---
 ###Delete
 ###Read
 ---
