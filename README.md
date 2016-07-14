@@ -260,6 +260,21 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Delete
+
+Um usuario administrador pode apagar um lugar cadastrado.
+
+```
+DELETE /deleteLugar
+curl -X DELETE localhost:3000/deleteLugar/2
+
+Retorna a mensagem de sucesso:
+HTTP/1.1 200 Ok
+{
+ 
+ "message":"Lugar excluido com sucesso"
+}
+```
+---
 ###Read
 ---
 
@@ -308,5 +323,20 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Delete
+
+Um usuario administrador pode apagar uma coordenação cadastrada.
+
+```
+DELETE /deleteCoord
+curl -X DELETE localhost:3000/deleteCoord/2
+
+Retorna a mensagem de sucesso:
+HTTP/1.1 200 Ok
+{
+ 
+ "message":"Coordenação excluida com sucesso"
+}
+```
+---
 ###Read
 ---
