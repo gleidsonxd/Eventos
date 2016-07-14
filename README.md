@@ -167,8 +167,53 @@ HTTP/1.1 200 Ok
 ###Read
 
 ##Lugar
+
 ###Create
+
+É necessario cadastrar os lugares antes de se cadastrar um eventos. Para criar um
+lugar, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome do lugar
+param qntPessoas,  Int,         required, quantidade de pessoas
+```
+
+```
+POST /createLugar
+curl -d "nome=Patio&qntPessoas=150"localhost:3000/createLugar
+
+Retorna o ID do lugar criado:
+HTTP/1.1 200 Ok
+{
+  "id":"1"
+  "message":"Lugar criado com sucesso"
+}
+```
+---
 ###Update
+
+O usuario administrado vai poder alterar os dados dos locais cadastrados. Para atualizar um
+lugar, deve-se enviar alguns parametros:
+
+```
+param nome,        String,      required, nome do lugar
+param qntPessoas,  Int,         required, quantidade de pessoas
+
+```
+
+```
+
+PUT /updateLugar
+curl -d "nome=Patio&qntPessoas=250"localhost:3000/updateLugar
+
+Retorna o ID do lugar alterado:
+HTTP/1.1 200 Ok
+{
+  "id":"1"
+  "message":"Lugar alterado com sucesso"
+}
+```
+---
 ###Delete
 ###Read
 ---
