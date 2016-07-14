@@ -194,6 +194,21 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Delete
+
+Um usuario administrador pode apagar um usuario.
+
+```
+DELETE /deleteUsuario
+curl -X DELETE localhost:3000/deleteUsuario/2
+
+Retorna a mensagem de sucesso:
+HTTP/1.1 200 Ok
+{
+ 
+ "message":"Usuario excluido com sucesso"
+}
+```
+---
 ###Read
 
 ##Lugar
