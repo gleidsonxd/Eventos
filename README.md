@@ -7,18 +7,18 @@
 Para criar um evento, deve-se enviar alguns parametros:
 
 ```
-param nome,        String,      required, nome do evento
-param servicos,    Array[Int],            id do serviço
-param lugar,       String,      required, nome do local, deve-se fazer um teste de msm locais na mesma data
-param dataIni,     String,      required, no formato dd/MM/yyyy HH:mm
-param dataFim,     String,      required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
-param desc,        String,                a descrição do sistema
-param user,        String,                email do usuario que está solicitando a criação do evento
+param nome,        String,          required, nome do evento
+param servicos,    Array[Int],                id do serviço
+param lugar,       Array[String],   required, nome do local, deve-se fazer um teste de msm locais na mesma data
+param dataIni,     String,          required, no formato dd/MM/yyyy HH:mm
+param dataFim,     String,          required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
+param desc,        String,                    a descrição do sistema
+param user,        String,                    email do usuario que está solicitando a criação do evento
 ```  
   
 ```
 POST /createEvento
-curl -d "user=daniel@ifpb.gov.br&nome=Evento tal&servicos=[1,2,3]&lugar=Patio&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/createEvento
+curl -d "user=daniel@ifpb.gov.br&nome=Evento tal&servicos=[1,2,3]&lugar=[Patio]&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/createEvento
 
 Retorna o ID do evento criado:
 HTTP/1.1 200 Ok
@@ -34,20 +34,21 @@ O usuario que criar um evento tambem vai poder alterar esse evento. Para atualiz
 evento, deve-se enviar alguns parametros:
 
 ```
-param nome,        String,      required, nome do evento
-param servicos,    Array[Int],            id do serviço
-param lugar,       String,      required, nome do local, deve-se fazer um teste de msm locais na mesma data
-param dataIni,     String,      required, no formato dd/MM/yyyy HH:mm
-param dataFim,     String,      required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
-param desc,        String,                a descrição do evento
-param userC,       String,                email do usuario que criou o evento
-param userU,       String,                email do usuario que alterou o evento
+param nome,        String,          required, nome do evento
+param servicos,    Array[Int],                id do serviço
+param lugar,       Array[String],   required, nome do local, deve-se fazer um teste de msm locais na mesma data
+param dataIni,     String,          required, no formato dd/MM/yyyy HH:mm
+param dataFim,     String,          required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
+param desc,        String,                    a descrição do evento
+param user,        String,                    email do usuario que criou o evento
+param userU,       String,                    email do usuario que alterou o evento
 ```  
 
 ```
-curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateEventos/2 -d '{"nome":"Nome_evento",
- "servicos":[1,2,3],"lugar":"Auditorio","dataIni":10/10/2010 09:00,"dataFim":10/10/2010 12:00,"desc":"Lorem ipsum",
- "userC":"user@email.com","userU":"user2@email.com"}'
+PUT /updateEvento
+curl -d "user=user@email.com&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
+&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall_mod&userU=usermod@email.com" localhost:3000/updateEvento
+
 
 Retorna o ID do evento alterado:
 HTTP/1.1 200 Ok
