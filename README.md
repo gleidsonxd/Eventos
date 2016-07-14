@@ -59,7 +59,22 @@ HTTP/1.1 200 Ok
 }
 ```
 ---
-###Delete
+###DELETE
+
+Um usuario pode apagar um evento que ele criou.
+
+```
+DELETE /deleteEvento
+curl -X DELETE localhost:3000/deleteEvento/2
+
+Retorna a mensagem de sucesso:
+HTTP/1.1 200 Ok
+{
+ 
+ "message":"Evento excluido com sucesso"
+}
+```
+---
 ###Read
 
 
