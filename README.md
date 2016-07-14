@@ -147,12 +147,13 @@ param nome,        String,      required, nome do usuario
 ```
 
 ```
-curl -i -X PUT -H "Content-Type:application/json" localhost:3000/updateUsuario/user@email.com -d '{"nome":"Usuario_mod"}'
+PUT /updateUsuario
+curl -d "nome=Nome_Usuario_Mod"localhost:3000/updateUsuario
 
-Retorna o Email do usuario alterado:
+Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
 {
- "email":"user@email.com"
+ 
  "message":"Nome alterado com sucesso"
 }
 ```
