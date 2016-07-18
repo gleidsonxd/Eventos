@@ -47,7 +47,7 @@ param userU,       String,                    email do usuario que alterou o eve
 
 ```
 PUT /updateEvento
-curl -d "user=user@email.com&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
+curl -d "id=2&user=user@email.com&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
 &dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall_mod&userU=usermod@email.com" localhost:3000/updateEvento
 
 
@@ -118,7 +118,7 @@ param coord,       String       required, nome da coordenacao que oferece o serv
 
 ```
 PUT /updateServico
-curl -d "nome=Nome_Servico_Mod&tempo=20&coord=Coordenacao_eventos"localhost:3000/updateServico
+curl -d "id=2&nome=Nome_Servico_Mod&tempo=20&coord=Coordenacao_eventos"localhost:3000/updateServico
 
 
 Retorna o ID do serviço alterado:
@@ -184,7 +184,7 @@ param nome,        String,      required, nome do usuario
 
 ```
 PUT /updateUsuario
-curl -d "nome=Nome_Usuario_Mod"localhost:3000/updateUsuario
+curl -d "id=2&nome=Nome_Usuario_Mod"localhost:3000/updateUsuario
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -251,7 +251,7 @@ param qntPessoas,  Int,         required, quantidade de pessoas
 ```
 
 PUT /updateLugar
-curl -d "nome=Patio&qntPessoas=250"localhost:3000/updateLugar
+curl -d "id=1&nome=Patio&qntPessoas=250"localhost:3000/updateLugar
 
 Retorna o ID do lugar alterado:
 HTTP/1.1 200 Ok
@@ -314,7 +314,7 @@ param nome,        String,      required, nome da coordenação
 
 ```
 PUT /updateCoord
-curl -d "nome=Coordenacao_eventos"localhost:3000/updateCoord
+curl -d "id=1&nome=Coordenacao_eventos"localhost:3000/updateCoord
 
 Retorna o ID da coordenação alterada:
 HTTP/1.1 200 Ok
