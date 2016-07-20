@@ -310,7 +310,7 @@ HTTP/1.1 200 Ok
 ---
 ###Update
 
-O usuario administrado vai poder alterar os dados dos locais cadastrados. Para atualizar um
+O usuario administrador vai poder alterar os dados dos locais cadastrados. Para atualizar um
 lugar, deve-se enviar alguns parametros:
 
 ```
