@@ -31,8 +31,7 @@ HTTP/1.1 200 Ok
 
 ###Update
 
-O usuario que criar um evento tambem vai poder alterar esse evento. Para atualizar um
-evento, deve-se enviar alguns parametros:
+O usuario que criar um evento tambem vai poder alterar esse evento. Para atualizar um evento, deve-se enviar alguns parametros:
 
 ```
 param id           Int              required, id do evento
@@ -77,8 +76,7 @@ HTTP/1.1 200 Ok
 ---
 ###Read
 
-O usuario vai poder ver os detalhes dos eventos que criou.Para ver um
-evento, deve-se acessar a URL:
+O usuario vai poder ver os detalhes dos eventos que criou.Para ver um evento, deve-se acessar a URL:
 
 ```
 GET/eventos/2
@@ -104,8 +102,7 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###List
-O usuario vai poder ver todos os eventos cadastrados.Para ver os
-eventos, deve-se acessar a URL:
+O usuario vai poder ver todos os eventos cadastrados.Para ver os eventos, deve-se acessar a URL:
 
 ```
 GET/eventos
@@ -178,8 +175,7 @@ HTTP/1.1 200 Ok
 ---
 ###Update
 
-O usuario administrador vai poder alterar os serviços. Para atualizar um
-serviço, deve-se enviar alguns parametros:
+O usuario administrador vai poder alterar os serviços. Para atualizar um serviço, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome do evento
@@ -241,8 +237,7 @@ HTTP/1.1 200 Ok
 ---
 ###List
 
-O administrador vai poder ver todos os serviços cadastrados.Para ver os
-serviços, deve-se acessar a URL:
+O administrador vai poder ver todos os serviços cadastrados.Para ver os serviços, deve-se acessar a URL:
 
 ```
 GET/servicos
@@ -277,9 +272,7 @@ HTTP/1.1 200 Ok
 
 ###Create
 
-Os usuarios do sistema vão se logar utilizando o email institucional, na primeira
-que se logarem no sistema, irão completar seu cadastro no sistema. Para criar um
-usuario, deve-se enviar alguns parametros:
+Os usuarios do sistema vão se logar utilizando o email institucional, na primeira que se logarem no sistema, irão completar seu cadastro no sistema. Para criar um usuario, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome do usuario
@@ -299,8 +292,7 @@ HTTP/1.1 200 Ok
 ---
 ###Update
 
-O usuario vai poder alterar os dados do seu cadastro. Para atualizar um
-usuario, deve-se enviar alguns parametros:
+O usuario vai poder alterar os dados do seu cadastro. Para atualizar um usuario, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome do usuario
@@ -337,7 +329,7 @@ HTTP/1.1 200 Ok
 ---
 ###Read
 
-O administrador vai poder ver um usuário específico. Para ver um usuário, deve-se acessar a URL:
+O administrador vai poder ver os dados de um usuário específico. Para ver um usuário, deve-se acessar a URL:
 
 ```
 GET/usuarios/1
@@ -391,8 +383,7 @@ HTTP/1.1 200 Ok
 
 ###Create
 
-É necessario cadastrar os lugares antes de se cadastrar um eventos. Para criar um
-lugar, deve-se enviar alguns parametros:
+É necessario cadastrar os lugares antes de se cadastrar um eventos. Para criar um lugar, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome do lugar
@@ -413,8 +404,7 @@ HTTP/1.1 200 Ok
 ---
 ###Update
 
-O usuario administrador vai poder alterar os dados dos locais cadastrados. Para atualizar um
-lugar, deve-se enviar alguns parametros:
+O usuario administrador vai poder alterar os dados dos locais cadastrados. Para atualizar um lugar, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome do lugar
@@ -452,13 +442,62 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Read
+
+O administrador vai poder ver os dados de um lugar específico. Para ver um lugar, deve-se acessar a URL:
+
+```
+GET/lugares/1
+
+curl localhost:3000/lugares/1
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "lugares":[
+    {
+      "nome":"nome_lugar",
+      "qntPessoas":100,
+      }       
+    ]
+  }
+
+```
+---
+###List
+
+O administrador vai poder ver todos os lugares cadastrados. Para ver os lugares, deve-se acessar a URL:
+
+```
+GET/lugares
+
+curl localhost:3000/lugares
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "lugares":[
+    {
+      "nome":"nome_lugar",
+      "qntPessoas":100,
+      },
+    {
+      "nome":"nome_lugar2",
+      "qntPessoas":140,
+      },
+    {
+      "nome":"nome_lugar3",
+      "qntPessoas":150,
+      }    
+    ]
+  }
+
+```
 ---
 
 ##Coordenação
 ###Create
 
-É necessario cadastrar as coordenações antes de se cadastrar um serviço. Para criar uma 
-coordenação, deve-se enviar alguns parametros:
+É necessario cadastrar as coordenações antes de se cadastrar um serviço. Para criar uma coordenação, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome da coordenação
@@ -478,8 +517,7 @@ HTTP/1.1 200 Ok
 ---
 ###Update
 
-O usuario administrado vai poder alterar os dados dos locais cadastrados. Para atualizar um
-lugar, deve-se enviar alguns parametros:
+O usuario administrado vai poder alterar os dados dos locais cadastrados. Para atualizar um lugar, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,      required, nome da coordenação
