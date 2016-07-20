@@ -35,19 +35,19 @@ O usuario que criar um evento tambem vai poder alterar esse evento. Para atualiz
 evento, deve-se enviar alguns parametros:
 
 ```
+param id           Int              required, id do evento
 param nome,        String,          required, nome do evento
 param servicos,    Array[Int],                id do serviço
 param lugar,       Array[String],   required, nome do local, deve-se fazer um teste de msm locais na mesma data
 param dataIni,     String,          required, no formato dd/MM/yyyy HH:mm
 param dataFim,     String,          required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
 param desc,        String,                    a descrição do evento
-param user,        String,                    email do usuario que criou o evento
 param userU,       String,                    email do usuario que alterou o evento
 ```  
 
 ```
 PUT /updateEvento
-curl -d "id=2&user=user@email.com&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
+curl -d "id=2&&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
 &dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall_mod&userU=usermod@email.com" localhost:3000/updateEvento
 
 
