@@ -18,7 +18,7 @@ param user,        String,                    email do usuario que está solicit
   
 ```
 POST /createEvento
-curl -d "user=daniel@ifpb.gov.br&nome=Evento tal&servicos=[1,2,3]&lugar=[Patio]&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/createEvento
+curl -d "user=user@email.com&nome=Evento tal&servicos=[1,2,3]&lugar=[Patio]&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/createEvento
 
 Retorna o ID do evento criado:
 HTTP/1.1 200 Ok
