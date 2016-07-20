@@ -217,8 +217,62 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Read
----
 
+O administrador vai poder ver um serviço específico.Para ver um serviço, deve-se acessar a URL:
+
+```
+GET/servicos/1
+
+curl localhost:3000/servicos/1
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "servicos":[
+    {
+      "nome":"serv1",
+      "tempo":15,
+      "coord":"coord eventos",
+      }    
+    ]
+  }
+
+```
+---
+###List
+
+O administrador vai poder ver todos os serviços cadastrados.Para ver os
+serviços, deve-se acessar a URL:
+
+```
+GET/servicos
+
+curl localhost:3000/servicos
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "servicos":[
+    {
+      "nome":"serv1",
+      "tempo":15,
+      "coord":"coord eventos",
+      },
+    {
+      "nome":"serv2",
+      "tempo":25,
+      "coord":"coord 2",
+      }
+    {
+      "nome":"serv3",
+      "tempo":30,
+      "coord":"coord 3",
+      }
+    ]
+  }
+
+```
+---
 ##Usuario
 
 ###Create
