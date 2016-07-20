@@ -336,8 +336,57 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Read
----
 
+O administrador vai poder ver um usuário específico. Para ver um usuário, deve-se acessar a URL:
+
+```
+GET/usuarios/1
+
+curl localhost:3000/usuarios/1
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "usuarios":[
+    {
+      "nome":"nome_user",
+      "email":"user@email.com",
+      }    
+    ]
+  }
+
+```
+---
+###List
+
+O administrador vai poder ver todos os usuários cadastrados. Para ver os usuários, deve-se acessar a URL:
+
+```
+GET/usuarios
+
+curl localhost:3000/usuarios
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "usuarios":[
+    {
+      "nome":"nome_user",
+      "email":"user@email.com",
+      },
+    {
+      "nome":"nome_user2",
+      "email":"user2@email.com",
+      },
+    {
+      "nome":"nome_user3",
+      "email":"user3@email.com",
+      }    
+    ]
+  }
+
+```
+---
 ##Lugar
 
 ###Create
