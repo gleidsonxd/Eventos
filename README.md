@@ -104,6 +104,49 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###List
+O usuario vai poder ver todos os eventos cadastrados.Para ver os
+eventos, deve-se acessar a URL:
+
+```
+GET/eventos
+
+curl localhost:3000/eventos
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "eventos":[
+    {
+      "nome":"nome_evento",
+      "servicos":[1,2,3],
+      "lugar":["Patio","Auditorio 1"],
+      "dataIni":"10/10/2010 09:00",
+      "dataFim":"10/10/2010 12:00",
+      "desc": "Descricao Tall",
+      "user": "user@email.com"
+      },
+    {
+      "nome":"nome_evento2",
+      "servicos":[1,2],
+      "lugar":["Patio"],
+      "dataIni":"11/10/2010 09:00",
+      "dataFim":"12/10/2010 12:00",
+      "desc": "Descricao",
+      "user": "user2@email.com"
+      }
+    {
+      "nome":"nome_evento3",
+      "servicos":[1,2,3,4],
+      "lugar":["Patio"],
+      "dataIni":"12/10/2010 09:00",
+      "dataFim":"13/10/2010 12:00",
+      "desc": "Descricao",
+      "user": "user1@email.com"
+      }
+    ]
+  }
+
+```
 ---
 
 ##Serviço
