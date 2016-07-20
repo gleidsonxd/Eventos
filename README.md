@@ -76,6 +76,34 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Read
+
+O usuario vai poder ver os detalhes dos eventos que criou.Para ver um
+evento, deve-se acessar a URL:
+
+```
+GET/eventos/2
+
+curl localhost:3000/eventos/2
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "eventos":[
+    {
+      "nome":"nome_evento",
+      "servicos":[1,2,3],
+      "lugar":["Patio","Auditorio 1"],
+      "dataIni":"10/10/2010 09:00",
+      "dataFim":"10/10/2010 12:00",
+      "desc": "Descricao Tall",
+      "user": "user@email.com"
+      }
+    ]
+  }
+
+```
+---
+###List
 ---
 
 ##Serviço
