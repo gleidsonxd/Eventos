@@ -553,4 +553,50 @@ HTTP/1.1 200 Ok
 ```
 ---
 ###Read
+
+O administrador vai poder ver os dados de uma coordenação específica. Para ver uma coordenação, deve-se acessar a URL:
+
+```
+GET/coord/1
+
+curl localhost:3000/coord/1
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "coords":[
+    {
+      "nome":"coord_eventos"      
+      }       
+    ]
+  }
+
+```
+---
+###List
+
+O administrador vai poder ver todas as coordenações cadastradas. Para ver as coordenações, deve-se acessar a URL:
+
+```
+GET/coords
+
+curl localhost:3000/coords
+
+Retorna o JSON:
+HTTP/1.1 200 Ok
+{
+  "coords":[
+    {
+      "nome":"coord_eventos"      
+      } 
+    {
+      "nome":"coord2"      
+      } 
+    {
+      "nome":"coord3"      
+      }       
+    ]
+  }
+
+```
 ---
