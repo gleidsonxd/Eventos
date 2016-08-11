@@ -17,8 +17,8 @@ param user,        String,                    email do usuario que está solicit
 ```  
   
 ```
-POST /createEvento
-curl -d "user=user@email.com&nome=Evento tal&servicos=[1,2,3]&lugar=[Patio]&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/createEvento
+POST /eventos
+curl -d "user=user@email.com&nome=Evento tal&servicos=[1,2,3]&lugar=[Patio]&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/eventos
 
 Retorna o ID do evento criado:
 HTTP/1.1 200 Ok
@@ -45,9 +45,9 @@ param userU,       String,                    email do usuario que alterou o eve
 ```  
 
 ```
-PUT /updateEvento
+PUT /eventos
 curl -d "id=2&&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
-&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall_mod&userU=usermod@email.com" localhost:3000/updateEvento
+&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall_mod&userU=usermod@email.com" localhost:3000/eventos
 
 
 Retorna o ID do evento alterado:
@@ -63,8 +63,8 @@ HTTP/1.1 200 Ok
 Um usuario pode apagar um evento que ele criou.
 
 ```
-DELETE /deleteEvento
-curl -X DELETE localhost:3000/deleteEvento/2
+DELETE /eventos
+curl -X DELETE localhost:3000/eventos/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -162,8 +162,8 @@ param coord,       String       required, nome da coordenacao que oferece o serv
 ```  
 
 ```
-POST /createServico
-curl -d "nome=Nome_Servico&tempo=15&coord=Coordenacao_eventos"localhost:3000/createServico
+POST /servicos
+curl -d "nome=Nome_Servico&tempo=15&coord=Coordenacao_eventos"localhost:3000/servicos
 
 Retorna o ID do servico criado:
 HTTP/1.1 200 Ok
@@ -184,8 +184,8 @@ param coord,       String       required, nome da coordenacao que oferece o serv
 ```  
 
 ```
-PUT /updateServico
-curl -d "id=2&nome=Nome_Servico_Mod&tempo=20&coord=Coordenacao_eventos"localhost:3000/updateServico
+PUT /servicos
+curl -d "id=2&nome=Nome_Servico_Mod&tempo=20&coord=Coordenacao_eventos"localhost:3000/servicos
 
 
 Retorna o ID do serviço alterado:
@@ -201,8 +201,8 @@ HTTP/1.1 200 Ok
 Um usuario administrador pode apagar um serviço.
 
 ```
-DELETE /deleteServico
-curl -X DELETE localhost:3000/deleteServico/2
+DELETE /servicos
+curl -X DELETE localhost:3000/servicos/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -280,8 +280,8 @@ param email,       String,      required, email do usuario
 ```
 
 ```
-POST /createUsuario
-curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/createUsuario
+POST /usuarios
+curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/usuarios
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -300,8 +300,8 @@ param nome,        String,      required, nome do usuario
 ```
 
 ```
-PUT /updateUsuario
-curl -d "id=2&nome=Nome_Usuario_Mod"localhost:3000/updateUsuario
+PUT /usuarios
+curl -d "id=2&nome=Nome_Usuario_Mod"localhost:3000/usuarios
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -316,8 +316,8 @@ HTTP/1.1 200 Ok
 Um usuario administrador pode apagar um usuario.
 
 ```
-DELETE /deleteUsuario
-curl -X DELETE localhost:3000/deleteUsuario/2
+DELETE /usuarios
+curl -X DELETE localhost:3000/usuarios/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -391,8 +391,8 @@ param qntPessoas,  Int,         required, quantidade de pessoas
 ```
 
 ```
-POST /createLugar
-curl -d "nome=Patio&qntPessoas=150"localhost:3000/createLugar
+POST /lugares
+curl -d "nome=Patio&qntPessoas=150"localhost:3000/lugares
 
 Retorna o ID do lugar criado:
 HTTP/1.1 200 Ok
@@ -414,8 +414,8 @@ param qntPessoas,  Int,         required, quantidade de pessoas
 
 ```
 
-PUT /updateLugar
-curl -d "id=1&nome=Patio&qntPessoas=250"localhost:3000/updateLugar
+PUT /lugares
+curl -d "id=1&nome=Patio&qntPessoas=250"localhost:3000/lugares
 
 Retorna o ID do lugar alterado:
 HTTP/1.1 200 Ok
@@ -430,8 +430,8 @@ HTTP/1.1 200 Ok
 Um usuario administrador pode apagar um lugar cadastrado.
 
 ```
-DELETE /deleteLugar
-curl -X DELETE localhost:3000/deleteLugar/2
+DELETE /lugares
+curl -X DELETE localhost:3000/lugares/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -504,8 +504,8 @@ param nome,        String,      required, nome da coordenação
 ```
 
 ```
-POST /createCoord
-curl -d "nome=Coordenacao_eventos"localhost:3000/createCoord
+POST /coords
+curl -d "nome=Coordenacao_eventos"localhost:3000/coords
 
 Retorna o ID da coordenação criada:
 HTTP/1.1 200 Ok
@@ -525,8 +525,8 @@ param nome,        String,      required, nome da coordenação
 ```
 
 ```
-PUT /updateCoord
-curl -d "id=1&nome=Coordenacao_eventos"localhost:3000/updateCoord
+PUT /coords
+curl -d "id=1&nome=Coordenacao_eventos"localhost:3000/coords
 
 Retorna o ID da coordenação alterada:
 HTTP/1.1 200 Ok
@@ -541,8 +541,8 @@ HTTP/1.1 200 Ok
 Um usuario administrador pode apagar uma coordenação cadastrada.
 
 ```
-DELETE /deleteCoord
-curl -X DELETE localhost:3000/deleteCoord/2
+DELETE /coords
+curl -X DELETE localhost:3000/coords/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -557,9 +557,9 @@ HTTP/1.1 200 Ok
 O administrador vai poder ver os dados de uma coordenação específica. Para ver uma coordenação, deve-se acessar a URL:
 
 ```
-GET/coord/1
+GET/coords/1
 
-curl localhost:3000/coord/1
+curl localhost:3000/coords/1
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
