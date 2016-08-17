@@ -8,17 +8,15 @@ Para criar um evento, deve-se enviar alguns parametros:
 
 ```
 param nome,        String,          required, nome do evento
-param servicos,    Array[Int],                id do serviço
-param lugar,       Array[String],   required, nome do local, deve-se fazer um teste de msm locais na mesma data
 param dataIni,     String,          required, no formato dd/MM/yyyy HH:mm
 param dataFim,     String,          required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
 param desc,        String,                    a descrição do sistema
-param user,        String,                    email do usuario que está solicitando a criação do evento
+param user_id,     Int,                       id do usuario que está solicitando a criação do evento
 ```  
   
 ```
 POST /eventos
-curl -d "user=user@email.com&nome=Evento tal&servicos=[1,2,3]&lugar=[Patio]&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall" localhost:3000/eventos
+curl -d "evento[user_id]=1&evento[nome]=Evento tal&evento[dataIni]=10/10/2010 09:00&evento[dataFim]=10/10/2010 12:00&evento[desc]=Descricao Tall" localhost:3000/eventos
 
 Retorna o ID do evento criado:
 HTTP/1.1 200 Ok
@@ -36,18 +34,15 @@ O usuario que criar um evento tambem vai poder alterar esse evento. Para atualiz
 ```
 param id           Int              required, id do evento
 param nome,        String,          required, nome do evento
-param servicos,    Array[Int],                id do serviço
-param lugar,       Array[String],   required, nome do local, deve-se fazer um teste de msm locais na mesma data
 param dataIni,     String,          required, no formato dd/MM/yyyy HH:mm
 param dataFim,     String,          required, no formato dd/MM/yyyy HH:mm. Fazer validação das datas.
 param desc,        String,                    a descrição do evento
-param userU,       String,                    email do usuario que alterou o evento
+param user_id,     Int,                       id do usuario que alterou o evento
 ```  
 
 ```
 PUT /eventos
-curl -d "id=2&&nome=Evento_Mod tal&servicos=[1,2,3]&lugar=[Patio]
-&dataIni=10/10/2010 09:00&dataFim=10/10/2010 12:00&desc=Descricao Tall_mod&userU=usermod@email.com" localhost:3000/eventos
+curl -X PUT -d "evento[nome]=Evento_Mod&evento[dataIni]=10/10/2010 09:00&evento[dataFim]=10/10/2010 12:00&evento[desc]=Descricao Tall_mod&evento[user_id]=1" localhost:3000/eventos/2
 
 
 Retorna o ID do evento alterado:
@@ -85,19 +80,9 @@ curl localhost:3000/eventos/2
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "eventos":[
-    {
-      "nome":"nome_evento",
-      "servicos":[1,2,3],
-      "lugar":["Patio","Auditorio 1"],
-      "dataIni":"10/10/2010 09:00",
-      "dataFim":"10/10/2010 12:00",
-      "desc": "Descricao Tall",
-      "user": "user@email.com"
-      }
-    ]
-  }
+[
+  "evento":{"nome":"nome_evento","dataIni":"10/10/2010 09:00","dataFim":"10/10/2010 12:00","desc": "Descricao Tall"}}
+]
 
 ```
 ---
@@ -111,37 +96,12 @@ curl localhost:3000/eventos
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "eventos":[
-    {
-      "nome":"nome_evento",
-      "servicos":[1,2,3],
-      "lugar":["Patio","Auditorio 1"],
-      "dataIni":"10/10/2010 09:00",
-      "dataFim":"10/10/2010 12:00",
-      "desc": "Descricao Tall",
-      "user": "user@email.com"
-      },
-    {
-      "nome":"nome_evento2",
-      "servicos":[1,2],
-      "lugar":["Patio"],
-      "dataIni":"11/10/2010 09:00",
-      "dataFim":"12/10/2010 12:00",
-      "desc": "Descricao",
-      "user": "user2@email.com"
-      }
-    {
-      "nome":"nome_evento3",
-      "servicos":[1,2,3,4],
-      "lugar":["Patio"],
-      "dataIni":"12/10/2010 09:00",
-      "dataFim":"13/10/2010 12:00",
-      "desc": "Descricao",
-      "user": "user1@email.com"
-      }
-    ]
-  }
+[
+  {"evento":{"nome":"nome_evento", "dataIni":"10/10/2010 09:00","dataFim":"10/10/2010 12:00","desc": "Descricao Tall"}},
+  {"evento":{"nome":"nome_evento2","dataIni":"11/10/2010 09:00","dataFim":"12/10/2010 12:00","desc": "Descricao"}},
+  {"evento":{"nome":"nome_evento3","dataIni":"12/10/2010 09:00","dataFim":"13/10/2010 12:00","desc": "Descricao"}}
+  
+]
 
 ```
 ---
