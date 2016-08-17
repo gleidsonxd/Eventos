@@ -158,12 +158,12 @@ Para criar um serviço, deve-se enviar alguns parametros:
 ```
 param nome,        String,      required, nome do evento
 param tempo,       Int,         required, tempo para o servico ficar pronto. Tempo em dias
-param coord,       String       required, nome da coordenacao que oferece o servico
+param coord_id,    Int       required,  id da coordenacao que oferece o servico
 ```  
 
 ```
 POST /servicos
-curl -d "nome=Nome_Servico&tempo=15&coord=Coordenacao_eventos"localhost:3000/servicos
+curl -d "servico[nome]=Nome_Servico&servico[tempo]=15&servico[coord_id]=1"localhost:3000/servicos
 
 Retorna o ID do servico criado:
 HTTP/1.1 200 Ok
@@ -180,12 +180,12 @@ O usuario administrador vai poder alterar os serviços. Para atualizar um servi�
 ```
 param nome,        String,      required, nome do evento
 param tempo,       Int,         required, tempo para o servico ficar pronto. Tempo em dias
-param coord,       String       required, nome da coordenacao que oferece o servico
+param coord_id     Int,         required, id da coordenação.
 ```  
 
 ```
-PUT /servicos
-curl -d "id=2&nome=Nome_Servico_Mod&tempo=20&coord=Coordenacao_eventos"localhost:3000/servicos
+PUT /servicos/2
+curl -X PUT -d "servico[nome]=Nome_Servico_Mod&servico[tempo]=20"localhost:3000/servicos/2
 
 
 Retorna o ID do serviço alterado:
@@ -223,15 +223,9 @@ curl localhost:3000/servicos/1
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "servicos":[
-    {
-      "nome":"serv1",
-      "tempo":15,
-      "coord":"coord eventos",
-      }    
-    ]
-  }
+[
+  {"servicos":{"nome":"serv1","tempo":15,"coord":"coord eventos"}}
+]
 
 ```
 ---
@@ -246,25 +240,11 @@ curl localhost:3000/servicos
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "servicos":[
-    {
-      "nome":"serv1",
-      "tempo":15,
-      "coord":"coord eventos",
-      },
-    {
-      "nome":"serv2",
-      "tempo":25,
-      "coord":"coord 2",
-      }
-    {
-      "nome":"serv3",
-      "tempo":30,
-      "coord":"coord 3",
-      }
-    ]
-  }
+[
+  {"servicos":{"nome":"serv1","tempo":15,"coord":"coord eventos"}},
+  {"servicos":{"nome":"serv2","tempo":25,"coord":"coord 2"}},
+  {"servicos":{"nome":"serv3","tempo":30, "coord":"coord 3"}}
+]
 
 ```
 ---
@@ -281,7 +261,7 @@ param email,       String,      required, email do usuario
 
 ```
 POST /usuarios
-curl -d "nome=Nome_Usuario&email=usuario@email.com"localhost:3000/usuarios
+curl -d "usuario[nome]=Nome_Usuario&usuario[email]=usuario@email.com"localhost:3000/usuarios
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -300,8 +280,8 @@ param nome,        String,      required, nome do usuario
 ```
 
 ```
-PUT /usuarios
-curl -d "id=2&nome=Nome_Usuario_Mod"localhost:3000/usuarios
+PUT /usuarios/2
+curl -X PUT -d "usuario[nome]=Nome_Usuario_Mod"localhost:3000/usuarios/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -338,14 +318,9 @@ curl localhost:3000/usuarios/1
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "usuarios":[
-    {
-      "nome":"nome_user",
-      "email":"user@email.com",
-      }    
-    ]
-  }
+[
+  {"usuarios":{"nome":"nome_user","email":"user@email.com"}}    
+]
 
 ```
 ---
@@ -360,22 +335,11 @@ curl localhost:3000/usuarios
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "usuarios":[
-    {
-      "nome":"nome_user",
-      "email":"user@email.com",
-      },
-    {
-      "nome":"nome_user2",
-      "email":"user2@email.com",
-      },
-    {
-      "nome":"nome_user3",
-      "email":"user3@email.com",
-      }    
-    ]
-  }
+[
+  {"usuarios":{"nome":"nome_user","email":"user@email.com"}},
+  {"usuarios":{"nome":"nome_user2","email":"user2@email.com"}},
+  {"usuarios":{"nome":"nome_user3","email":"user3@email.com"}}
+]
 
 ```
 ---
@@ -391,8 +355,8 @@ param qntPessoas,  Int,         required, quantidade de pessoas
 ```
 
 ```
-POST /lugares
-curl -d "nome=Patio&qntPessoas=150"localhost:3000/lugares
+POST /lugars
+curl -d "lugar[nome]=Patio&lugar[qntPessoas]=150"localhost:3000/lugars
 
 Retorna o ID do lugar criado:
 HTTP/1.1 200 Ok
@@ -414,8 +378,8 @@ param qntPessoas,  Int,         required, quantidade de pessoas
 
 ```
 
-PUT /lugares
-curl -d "id=1&nome=Patio&qntPessoas=250"localhost:3000/lugares
+PUT /lugars/1
+curl -X PUT -d "lugar[nome]=Patio&lugar[qntPessoas]=250"localhost:3000/lugars/1
 
 Retorna o ID do lugar alterado:
 HTTP/1.1 200 Ok
@@ -430,8 +394,8 @@ HTTP/1.1 200 Ok
 Um usuario administrador pode apagar um lugar cadastrado.
 
 ```
-DELETE /lugares
-curl -X DELETE localhost:3000/lugares/2
+DELETE /lugars
+curl -X DELETE localhost:3000/lugars/2
 
 Retorna a mensagem de sucesso:
 HTTP/1.1 200 Ok
@@ -446,20 +410,15 @@ HTTP/1.1 200 Ok
 O administrador vai poder ver os dados de um lugar específico. Para ver um lugar, deve-se acessar a URL:
 
 ```
-GET/lugares/1
+GET/lugars/1
 
-curl localhost:3000/lugares/1
+curl localhost:3000/lugars/1
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "lugares":[
-    {
-      "nome":"nome_lugar",
-      "qntPessoas":100,
-      }       
-    ]
-  }
+[
+  {"lugars":{"nome":"nome_lugar","qntPessoas":100}}       
+]
 
 ```
 ---
@@ -468,28 +427,17 @@ HTTP/1.1 200 Ok
 O administrador vai poder ver todos os lugares cadastrados. Para ver os lugares, deve-se acessar a URL:
 
 ```
-GET/lugares
+GET/lugars
 
-curl localhost:3000/lugares
+curl localhost:3000/lugars
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "lugares":[
-    {
-      "nome":"nome_lugar",
-      "qntPessoas":100,
-      },
-    {
-      "nome":"nome_lugar2",
-      "qntPessoas":140,
-      },
-    {
-      "nome":"nome_lugar3",
-      "qntPessoas":150,
-      }    
-    ]
-  }
+[
+  {"lugars":{"nome":"nome_lugar","qntPessoas":100}},
+  {"lugars":{"nome":"nome_lugar2","qntPessoas":140}},
+  {"lugars":{"nome":"nome_lugar3","qntPessoas":150}}    
+]
 
 ```
 ---
@@ -526,7 +474,7 @@ param nome,        String,      required, nome da coordenação
 
 ```
 PUT /coords
-curl -d "id=1&nome=Coordenacao_eventos"localhost:3000/coords
+curl -X PUT -d "id=1&nome=Coordenacao_eventos"localhost:3000/coords
 
 Retorna o ID da coordenação alterada:
 HTTP/1.1 200 Ok
@@ -563,13 +511,10 @@ curl localhost:3000/coords/1
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "coords":[
-    {
-      "nome":"coord_eventos"      
-      }       
-    ]
-  }
+[
+  {"coords":{"nome":"coord_eventos"}}       
+
+]
 
 ```
 ---
@@ -584,19 +529,11 @@ curl localhost:3000/coords
 
 Retorna o JSON:
 HTTP/1.1 200 Ok
-{
-  "coords":[
-    {
-      "nome":"coord_eventos"      
-      } 
-    {
-      "nome":"coord2"      
-      } 
-    {
-      "nome":"coord3"      
-      }       
-    ]
-  }
+[
+  {"coords":{"nome":"coord_eventos"}} 
+  {"coords":{"nome":"coord2"}} 
+  {"coords":{"nome":"coord3"}}       
+]
 
 ```
 ---
